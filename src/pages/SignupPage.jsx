@@ -1,0 +1,69 @@
+import axios from "axios";
+import React from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+
+const SignupPage = () => {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const nav = useNavigate();
+
+  async function handleSignupUser(e) {
+    e.preventDefault();
+    const userToCreate = { username, email, password };
+    try {
+      const createdUser = await axios.post(
+        "http://localhost:5005/auth/signup",
+        userToCreate
+      );
+      console.log("user signed up!", createdUser);
+      nav("/login");
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  return (
+    <div>
+      <h2>Welcome to RoloCloud!</h2>
+      <form onSubmit={handleSignupUser}>
+        <label>
+          Username:
+          <input
+            type="text"
+            value={username}
+            onChange={(event) => {
+              setUsername(event.target.value);
+            }}
+          />
+        </label>
+        <label>
+          Email:
+          <input
+            type="email"
+            value={email}
+            onChange={(event) => {
+              setEmail(event.target.value);
+            }}
+          />
+        </label>
+        <label>
+          Password:
+          <input
+            type="password"
+            value={password}
+            onChange={(event) => {
+              setPassword(event.target.value);
+            }}
+          />
+        </label>
+        <button>Create an account</button>
+      </form>
+      <p>Already a member?</p>
+      <Link to="/login"> Login </Link>
+    </div>
+  );
+};
+
+export default SignupPage;
