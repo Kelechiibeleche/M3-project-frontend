@@ -11,11 +11,13 @@ import NotFoundPage from "./pages/NotFoundPage";
 import AddContactPage from "./pages/AddContactPage";
 import EditContactPage from "./pages/EditContactPage";
 import ProfilePage from "./pages/ProfilePage";
+import RouteProtector from "./components/RouteProtector";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <>
-      <h1>RoloCloud</h1>
+      <Navbar />
       <Routes>
         <Route path="/" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
@@ -24,7 +26,14 @@ function App() {
         <Route path="/notFoundPage" element={<NotFoundPage />} />
         <Route path="/addContactPage" element={<AddContactPage />} />
         <Route path="/editContactPage" element={<EditContactPage />} />
-        <Route path="/profile" element={<ProfilePage />} />
+        <Route
+          path="/profile"
+          element={
+            <RouteProtector>
+              <ProfilePage />
+            </RouteProtector>
+          }
+        />
       </Routes>
     </>
   );

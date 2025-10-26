@@ -8,6 +8,7 @@ const SignupPage = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const nav = useNavigate();
 
   async function handleSignupUser(e) {
@@ -21,7 +22,8 @@ const SignupPage = () => {
       console.log("user signed up!", createdUser);
       nav("/login");
     } catch (error) {
-      console.log(error);
+      console.log(error.response.data.errorMessage);
+      setError(error.response.data.errorMessage);
     }
   }
   return (
@@ -59,9 +61,12 @@ const SignupPage = () => {
           />
         </label>
         <button>Create an account</button>
+        {error && <p className="error">{error}</p>}
       </form>
       <p>Already a member?</p>
-      <Link to="/login"> Login </Link>
+      <Link to="/login">
+        <button>Login</button>{" "}
+      </Link>
     </div>
   );
 };

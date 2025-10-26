@@ -1,14 +1,17 @@
 import axios from "axios";
 import React from "react";
+import { useContext } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { Authcontext } from "../context/AuthContext";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const nav = useNavigate();
 
+  const { authenticateUser } = useContext(Authcontext);
   async function handleLoginUser(e) {
     e.preventDefault();
     const userToLogin = { email, password };
@@ -20,6 +23,7 @@ const LoginPage = () => {
       console.log("you logged in!", data);
       localStorage.setItem("authToken", data.authToken);
 
+      await authenticateUser();
       nav("/profile");
     } catch (error) {
       console.log(error);
@@ -52,7 +56,9 @@ const LoginPage = () => {
         <button>Login</button>
       </form>
       <p>New here?</p>
-      <Link to="/signup"> Sign up </Link>
+      <Link to="/signup">
+        <button>Sign up </button>
+      </Link>
     </div>
   );
 };
