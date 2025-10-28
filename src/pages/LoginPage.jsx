@@ -56,7 +56,7 @@ const LoginPage = () => {
         <button>Login</button>
       </form>
       <p>New here?</p>
-      <Link to="/signup">
+      <Link to="/">
         <button>Sign up </button>
       </Link>
     </div>

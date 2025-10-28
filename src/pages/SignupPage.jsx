@@ -34,6 +34,7 @@ const SignupPage = () => {
           Username:
           <input
             type="text"
+            placeholder="John Doe"
             value={username}
             onChange={(event) => {
               setUsername(event.target.value);
@@ -44,6 +45,7 @@ const SignupPage = () => {
           Email:
           <input
             type="email"
+            placeholder="johndoe@gmail.com"
             value={email}
             onChange={(event) => {
               setEmail(event.target.value);
@@ -54,6 +56,7 @@ const SignupPage = () => {
           Password:
           <input
             type="password"
+            placeholder="password (6+ characters)"
             value={password}
             onChange={(event) => {
               setPassword(event.target.value);

@@ -13,6 +13,7 @@ import EditContactPage from "./pages/EditContactPage";
 import ProfilePage from "./pages/ProfilePage";
 import RouteProtector from "./components/RouteProtector";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -22,9 +23,12 @@ function App() {
         <Route path="/" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/contacts" element={<ContactListPage />} />
-        <Route path="/contactDetails" element={<ContactDetailsPage />} />
+        <Route
+          path="/contacts/detail/:contactId"
+          element={<ContactDetailsPage />}
+        />
         <Route path="/notFoundPage" element={<NotFoundPage />} />
-        <Route path="/addContactPage" element={<AddContactPage />} />
+        <Route path="/create-a-contact" element={<AddContactPage />} />
         <Route path="/editContactPage" element={<EditContactPage />} />
         <Route
           path="/profile"
@@ -35,6 +39,7 @@ function App() {
           }
         />
       </Routes>
+      <Footer />
     </>
   );
 }

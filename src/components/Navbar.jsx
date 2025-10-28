@@ -1,28 +1,37 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import myLogo from "../assets/myLogo.png";
 import { Authcontext } from "../context/AuthContext";
 
 const Navbar = () => {
-  const { isLoggedIn, handleLogout } = useContext(Authcontext);
+  const { isLoggedIn, handleLogout, currentUser } = useContext(Authcontext);
 
   return (
     <nav>
-      <img src={myLogo} alt="logo" />
-      <h2>RoloCloud</h2>
+      <div className="nav-left">
+        <img src={myLogo} alt="logo" />
+        <h2>RoloCloud</h2>
+      </div>
 
-      {isLoggedIn ? (
-        <button onClick={handleLogout}>Logout</button>
-      ) : (
-        <>
-          <Link to="/">
-            <button>Sign Up</button>
-          </Link>
-          <Link to="/login">
-            <button>Login</button>
-          </Link>
-        </>
-      )}
+      <div className="nav-right">
+        {isLoggedIn ? (
+          <>
+            <NavLink to="/contacts">
+              <button>All Contacts</button>
+            </NavLink>
+            <button onClick={handleLogout}>Logout</button>
+          </>
+        ) : (
+          <>
+            <Link to="/">
+              <button>Sign Up</button>
+            </Link>
+            <Link to="/login">
+              <button>Login</button>
+            </Link>
+          </>
+        )}
+      </div>
     </nav>
   );
 };
