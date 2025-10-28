@@ -63,12 +63,12 @@ const SignupPage = () => {
             }}
           />
         </label>
-        <button>Create an account</button>
+        <button className="btn">Create an account</button>
         {error && <p className="error">{error}</p>}
       </form>
       <p>Already a member?</p>
       <Link to="/login">
-        <button>Login</button>{" "}
+        <button className="btn">Login</button>{" "}
       </Link>
     </div>
   );

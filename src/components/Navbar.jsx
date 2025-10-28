@@ -17,9 +17,11 @@ const Navbar = () => {
         {isLoggedIn ? (
           <>
             <NavLink to="/contacts">
-              <button>All Contacts</button>
+              <button className="btn">All Contacts</button>
             </NavLink>
-            <button onClick={handleLogout}>Logout</button>
+            <button onClick={handleLogout} className="btn">
+              Logout
+            </button>
           </>
         ) : (
           <>

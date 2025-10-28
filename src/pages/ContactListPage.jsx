@@ -25,7 +25,7 @@ const ContactListPage = () => {
     <div>
       <h2>Contacts</h2>
       <Link to="/create-a-contact">
-        <button>Add new Contact</button>
+        <button className="btn">Add new Contact</button>
       </Link>
 
       <section id="contact-page">

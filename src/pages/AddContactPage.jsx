@@ -89,7 +89,7 @@ const AddContactPage = () => {
             }}
           />
         </label>
-        <button>Submit</button>
+        <button className="btn">Submit</button>
       </form>
     </div>
   );

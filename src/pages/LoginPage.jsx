@@ -53,11 +53,11 @@ const LoginPage = () => {
             }}
           />
         </label>
-        <button>Login</button>
+        <button className="btn">Login</button>
       </form>
       <p>New here?</p>
       <Link to="/">
-        <button>Sign up </button>
+        <button className="btn">Sign up </button>
       </Link>
     </div>
   );

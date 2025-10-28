@@ -7,6 +7,7 @@ import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import ContactListPage from "./pages/ContactListPage";
 import ContactDetailsPage from "./pages/ContactDetailsPage";
+import ContactNotesPage from "./pages/ContactNotesPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import AddContactPage from "./pages/AddContactPage";
 import EditContactPage from "./pages/EditContactPage";
@@ -27,9 +28,13 @@ function App() {
           path="/contacts/detail/:contactId"
           element={<ContactDetailsPage />}
         />
+        <Route
+          path="/contacts/:contactId/notes"
+          element={<ContactNotesPage />}
+        />
         <Route path="/notFoundPage" element={<NotFoundPage />} />
         <Route path="/create-a-contact" element={<AddContactPage />} />
-        <Route path="/editContactPage" element={<EditContactPage />} />
+        <Route path="/contacts/edit/:contactId" element={<EditContactPage />} />
         <Route
           path="/profile"
           element={
