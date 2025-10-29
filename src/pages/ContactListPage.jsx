@@ -36,7 +36,6 @@ const ContactListPage = () => {
             className="contact-card"
           >
             <div>
-              {/* image */}
               {oneContact.image && (
                 <img
                   src={oneContact.image}

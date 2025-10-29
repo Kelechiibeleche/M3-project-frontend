@@ -26,10 +26,10 @@ const Navbar = () => {
         ) : (
           <>
             <Link to="/">
-              <button>Sign Up</button>
+              <button className="btn">Sign Up</button>
             </Link>
             <Link to="/login">
-              <button>Login</button>
+              <button className="btn">Login</button>
             </Link>
           </>
         )}

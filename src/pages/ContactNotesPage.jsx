@@ -31,7 +31,7 @@ const ContactNotesPage = () => {
       );
       setNotes([data, ...notes]);
       setNewNote("");
-      nav("/contacts"); // ASK JOSH WHY I CANT NAV TO THE ID PAGE
+      nav(`/contacts/detail/${contactId}`);
     } catch (error) {
       console.error("Error adding note:", error);
     }
@@ -54,7 +54,6 @@ const ContactNotesPage = () => {
           placeholder="Write a note..."
         ></textarea>
 
-        {/* No button-group wrapper */}
         <button type="submit" className="btn" disabled={!newNote.trim()}>
           Add Note
         </button>

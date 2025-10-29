@@ -22,9 +22,9 @@ const ProfilePage = () => {
   }, [currentUser?._id]);
 
   return (
-    <div>
+    <div className="welcome-back">
       {profileUser?.username
-        ? `${profileUser.username}'s Profile Page`
+        ? `Welcome Back, ${profileUser.username} 👋`
         : "Loading profile..."}
     </div>
   );
