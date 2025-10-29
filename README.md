@@ -1,7 +1,7 @@
 🌥️ RoloCloud
 “Keep your contacts safe — the cloud way ☁️”
 
-RoloCloud is a full-stack contact management web app that lets users securely store, organize, and annotate their contacts with notes — all in the cloud. Built using the MERN stack (MongoDB, Express, React, Node.js), it supports user authentication, CRUD operations, and a clean, modern UI.
+RoloCloud is a full-stack contact management web app that lets users securely store, organize, and annotate their contacts with notes — all in the cloud. Built using the MERN stack (MongoDB, Express, React, Node.js), it supports user authentication, CRUD operations, and a  modern UI.
 
 🚀 Features
 👤 User Authentication
