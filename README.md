@@ -1,16 +1,84 @@
-# React + Vite
+🌥️ RoloCloud
+“Keep your contacts safe — the cloud way ☁️”
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+RoloCloud is a full-stack contact management web app that lets users securely store, organize, and annotate their contacts with notes — all in the cloud. Built using the MERN stack (MongoDB, Express, React, Node.js), it supports user authentication, CRUD operations, and a  modern UI.
 
-Currently, two official plugins are available:
+🚀 Features
+👤 User Authentication
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Signup & Login with JWT-based authentication
 
-## React Compiler
+Protected routes for logged-in users
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+Personalized dashboard and profile page
 
-## Expanding the ESLint configuration
+📇 Contact Management
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Create, view, update, and delete contacts
+
+Add profile images and detailed contact info (email, address, phone)
+
+Linked contacts displayed in a clean, card-based layout
+
+🗒️ Notes System
+
+Add personal notes for each contact (e.g. birthdays, appointments, reminders)
+
+View and delete notes easily
+
+Each note is linked to a specific contact
+
+🧭 Navigation & UI
+
+Modern responsive design with blue-accented theme
+
+Navbar for easy navigation
+
+Footer with quick links and social profiles
+
+Animated page transitions and styled buttons
+
+🏗️ Tech Stack
+Area	Technology
+Frontend	React, Axios, React Router DOM
+Backend	Node.js, Express.js
+Database	MongoDB + Mongoose
+Auth	JWT (JSON Web Token)
+Styling	CSS3, Flexbox, Responsive Design
+Dev Tools	Nodemon, Vite, Postman
+
+| Method | Endpoint            | Description            |
+| ------ | ------------------- | ---------------------- |
+| POST   | `/auth/signup`      | Register a new user    |
+| POST   | `/auth/login`       | Log in and receive JWT |
+| GET    | `/auth/verify`      | Verify token           |
+| GET    | `/auth/profile/:id` | Get user profile data  |
+
+| Method | Endpoint                        | Description           |
+| ------ | ------------------------------- | --------------------- |
+| GET    | `/contact/all-contacts/:userId` | Get all user contacts |
+| GET    | `/contact/single-contact/:id`   | Get one contact       |
+| POST   | `/contact/create-a-contact`     | Add a new contact     |
+| PUT    | `/contact/update-a-contact/:id` | Edit contact          |
+| DELETE | `/contact/delete-a-contact/:id` | Delete contact        |
+
+| Method | Endpoint                     | Description                 |
+| ------ | ---------------------------- | --------------------------- |
+| GET    | `/notes/:contactId`          | Get all notes for a contact |
+| POST   | `/notes/add-note/:contactId` | Add new note                |
+| DELETE | `/notes/delete-note/:noteId` | Delete note                 |
+
+👩‍💻 Example User Flow
+
+Sign up or log in
+
+Add new contacts — fill name, phone, email, and upload an image
+
+Click a contact to view details
+
+Add notes (e.g., “Birthday reminder – May 22”)
+
+Edit or delete contacts and notes anytime
+
+
+
