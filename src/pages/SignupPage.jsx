@@ -3,6 +3,7 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { API_URL } from "../config/api.config";
 
 const SignupPage = () => {
   const [username, setUsername] = useState("");
@@ -16,7 +17,7 @@ const SignupPage = () => {
     const userToCreate = { username, email, password };
     try {
       const createdUser = await axios.post(
-        "http://localhost:5005/auth/signup",
+        `${API_URL}/auth/signup`,
         userToCreate
       );
       console.log("user signed up!", createdUser);

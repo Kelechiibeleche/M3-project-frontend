@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { Authcontext } from "../context/AuthContext";
+import { API_URL } from "../config/api.config";
 
 const ProfilePage = () => {
   const [profileUser, setProfileUser] = useState({});
@@ -10,7 +11,7 @@ const ProfilePage = () => {
     async function getProfileUsersData() {
       try {
         const { data } = await axios.get(
-          `http://localhost:5005/auth/profile/${currentUser?._id}`
+          `${API_URL}/auth/profile/${currentUser?._id}`
         );
         setProfileUser(data);
       } catch (error) {

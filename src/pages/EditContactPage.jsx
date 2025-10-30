@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { API_URL } from "../config/api.config";
 
 const EditContactPage = () => {
   const [name, setName] = useState("");
@@ -9,13 +10,14 @@ const EditContactPage = () => {
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
   const [image, setImage] = useState("");
+  const [category, setCategory] = useState("");
   const { contactId } = useParams();
   const nav = useNavigate();
   useEffect(() => {
     async function getContactDetails() {
       try {
         const { data } = await axios.get(
-          `http://localhost:5005/contact/single-contact/${contactId}`
+          `${API_URLL}/contact/single-contact/${contactId}`
         );
         console.log(data);
         setName(data.name);
@@ -23,6 +25,7 @@ const EditContactPage = () => {
         setEmail(data.email);
         setAddress(data.address);
         setImage(data.image);
+        setCategory(data.category);
       } catch (error) {
         console.log(error);
       }
@@ -38,10 +41,11 @@ const EditContactPage = () => {
       email,
       address,
       image,
+      category,
     };
     try {
       const { data } = await axios.put(
-        `http://localhost:5005/contact/update-a-contact/${contactId}`,
+        `${API_URL}/contact/update-a-contact/${contactId}`,
         updtedContact
       );
       nav("/contacts");
@@ -104,6 +108,20 @@ const EditContactPage = () => {
             }}
           />
         </label>
+        <label>
+          Category:
+          <select
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+          >
+            <option value="Family">Family</option>
+            <option value="Friend">Friend</option>
+            <option value="Colleague">Colleague</option>
+            <option value="Business">Business</option>
+            <option value="Other">Other</option>
+          </select>
+        </label>
+
         <button className="btn">Submit</button>
       </form>
     </div>

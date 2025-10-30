@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Authcontext } from "../context/AuthContext";
+import { API_URL } from "../config/api.config";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -16,10 +17,7 @@ const LoginPage = () => {
     e.preventDefault();
     const userToLogin = { email, password };
     try {
-      const { data } = await axios.post(
-        "http://localhost:5005/auth/login",
-        userToLogin
-      );
+      const { data } = await axios.post(`${API_URL}/auth/login`, userToLogin);
       console.log("you logged in!", data);
       localStorage.setItem("authToken", data.authToken);
 

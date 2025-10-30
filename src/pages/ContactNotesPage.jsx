@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { API_URL } from "../config/api.config";
 
 const ContactNotesPage = () => {
   const { contactId } = useParams();
@@ -11,9 +12,7 @@ const ContactNotesPage = () => {
   useEffect(() => {
     async function fetchNotes() {
       try {
-        const { data } = await axios.get(
-          `http://localhost:5005/notes/${contactId}`
-        );
+        const { data } = await axios.get(`${API_URL}/notes/${contactId}`);
         setNotes(data);
       } catch (error) {
         console.error("Error fetching notes:", error);
@@ -26,7 +25,8 @@ const ContactNotesPage = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        `http://localhost:5005/notes/add-note/${contactId}`,
+        `${API_URL}/notes/add-note/${contactId}`,
+
         { content: newNote }
       );
       setNotes([data, ...notes]);
@@ -39,7 +39,7 @@ const ContactNotesPage = () => {
 
   async function handleDelete(noteId) {
     try {
-      await axios.delete(`http://localhost:5005/notes/delete-note/${noteId}`);
+      await axios.delete(`${API_URL}/notes/delete-note/${noteId}`);
       setNotes(notes.filter((n) => n._id !== noteId));
     } catch (error) {
       console.error("Error deleting note:", error);

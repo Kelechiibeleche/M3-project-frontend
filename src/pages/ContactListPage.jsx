@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { Authcontext } from "../context/AuthContext";
+import { API_URL } from "../config/api.config";
 
 const ContactListPage = () => {
   const [contacts, setContacts] = useState([]);
@@ -10,7 +11,8 @@ const ContactListPage = () => {
     async function getAllContacts() {
       try {
         const { data } = await axios.get(
-          `http://localhost:5005/contact/all-contacts/${currentUser._id}`
+          //`http://localhost:5005/contact/all-contacts/${currentUser._id}`//
+          `${API_URL}/contact/all-contacts/${currentUser._id}`
         );
         setContacts(data);
       } catch (error) {

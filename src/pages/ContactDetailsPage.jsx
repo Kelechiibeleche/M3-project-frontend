@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { API_URL } from "../config/api.config";
 
 const ContactDetailsPage = () => {
   const [contactState, setContactState] = useState({});
@@ -14,7 +15,8 @@ const ContactDetailsPage = () => {
     async function getOneContact() {
       try {
         const { data } = await axios.get(
-          `http://localhost:5005/contact/single-contact/${contactId}`
+          //`http://localhost:5005/contact/single-contact/${contactId}`//
+          `${API_URL}/contact/single-contact/${contactId}`
         );
         console.log("Fetched contact:", data);
         setContactState(data);
@@ -26,7 +28,8 @@ const ContactDetailsPage = () => {
     async function getNotes() {
       try {
         const { data } = await axios.get(
-          `http://localhost:5005/notes/${contactId}`
+          //`http://localhost:5005/notes/${contactId}`//
+          `${API_URL}/notes/${contactId}`
         );
         setNotes(data);
       } catch (error) {
@@ -41,7 +44,8 @@ const ContactDetailsPage = () => {
   async function handleDelete() {
     try {
       const { data } = await axios.delete(
-        `http://localhost:5005/contact/delete-a-contact/${contactId}`
+        // `http://localhost:5005/contact/delete-a-contact/${contactId}`//
+        `${API_URL}/contact/delete-a-contact/${contactId}`
       );
 
       nav("/contacts");
