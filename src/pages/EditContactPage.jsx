@@ -17,7 +17,7 @@ const EditContactPage = () => {
     async function getContactDetails() {
       try {
         const { data } = await axios.get(
-          `${API_URLL}/contact/single-contact/${contactId}`
+          `${API_URL}/contact/single-contact/${contactId}`
         );
         console.log(data);
         setName(data.name);
